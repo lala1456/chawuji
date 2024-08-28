@@ -1,11 +1,42 @@
 <script setup>
 import { useRoute } from 'vue-router'
+import { ref } from 'vue'
 
-// 获取当前路由
 const route = useRoute()
-
-// 函数：判断当前路由路径是否为指定路径
 const isCurrentRoute = (path) => route.path === path
+//二维码
+const qrcode = ref([
+  {
+    title: '微信公众号',
+    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    isFirst: true
+  },
+  {
+    title: '微信小程序',
+    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    isFirst: false
+  },
+  {
+    title: '抖音号',
+    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    isFirst: false
+  }
+])
+//图标
+const ico = ref([
+  {
+    imageSrc: new URL('@/assets/微信.png', import.meta.url).href,
+    isFirst: true
+  },
+  {
+    imageSrc: new URL('@/assets/微博.png', import.meta.url).href,
+    isFirst: false
+  },
+  {
+    imageSrc: new URL('@/assets/抖音.png', import.meta.url).href,
+    isFirst: false
+  }
+])
 </script>
 
 <template>
@@ -32,7 +63,35 @@ const isCurrentRoute = (path) => route.path === path
     </div>
     <footer class="footer">
       <div class="text">
-        <span>杭州市上城区茶物集食品店</span>
+        <span class="region">杭州市上城区茶物集食品店</span>
+        <div class="other">
+          <span>地址：浙江省杭州市上城区雍华里2幢底商2-1、2-2一层</span>
+          <span>电话：</span>
+          <span>邮箱：</span>
+        </div>
+        <div class="ico">
+          <img
+            v-for="i in ico"
+            :key="i"
+            :src="i.imageSrc"
+            :class="{ 'img-not-first': !i.isFirst }"
+            alt=""
+          />
+        </div>
+      </div>
+      <div class="qrcode-content">
+        <div class="qrcode" v-for="qr in qrcode" :key="qr">
+          <img
+            :src="qr.imageSrc"
+            alt=""
+            :class="{ 'not-first': !qr.isFirst }"
+          />
+          <span
+            class="title"
+            :class="{ 'not-first': !qr.isFirst }"
+            v-html="qr.title"
+          ></span>
+        </div>
       </div>
     </footer>
   </div>
@@ -42,7 +101,6 @@ const isCurrentRoute = (path) => route.path === path
 .container {
   width: 1440px;
   margin: 0 auto;
-
 
   .icon {
     padding-top: 20px;
@@ -80,7 +138,6 @@ const isCurrentRoute = (path) => route.path === path
     width: 70%;
     text-align: right;
 
-
     .header-nav {
       margin-right: 80px;
       display: inline-block;
@@ -98,14 +155,76 @@ const isCurrentRoute = (path) => route.path === path
     }
   }
 
-
   .footer {
     height: 400px;
     width: 100%;
-    background: #2D2D2D;
+    background: #2d2d2d;
     box-sizing: border-box;
-    .text{
+
+    .text {
+      float: left;
+      box-sizing: border-box;
+      overflow: hidden;
+      margin-top: 96px;
+      margin-left: 87px;
       color: #ffffff;
+
+      .region {
+        font-size: 20px;
+      }
+
+      .other {
+        margin-top: 20px;
+        font-size: 14px;
+
+        span {
+          display: block;
+          margin-top: 10px;
+        }
+      }
+
+      .ico {
+        margin-top: 20px;
+
+        img {
+          width: 50px;
+          height: 50px;
+        }
+
+        .img-not-first {
+          margin-left: 15px;
+        }
+      }
+    }
+
+    .qrcode-content {
+      padding-left: 79px;
+      padding-top: 95px;
+      box-sizing: border-box;
+      overflow: hidden;
+
+      .qrcode {
+        float: left;
+        box-sizing: border-box;
+        overflow: hidden;
+
+        .not-first {
+          margin-left: 110px;
+        }
+
+        img {
+          width: 211px;
+          height: 211px;
+        }
+
+        .title {
+          margin-top: 15px;
+          display: block;
+          text-align: center;
+          font-size: 20px;
+          color: white;
+        }
+      }
     }
   }
 }
