@@ -103,7 +103,7 @@ const ico = ref([
 .container {
   width: 1440px;
   margin: 0 auto;
-  background-image: url('@/assets/layout/background.jpg');
+  //background-image: url('@/assets/layout/background.jpg');
 
   .icon {
     padding-top: 20px;

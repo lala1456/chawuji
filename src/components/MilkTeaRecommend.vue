@@ -39,6 +39,7 @@ console.log(props)
         {{ description }}
       </p>
     </div>
+
     <div
       class="image"
       :class="{ 'image-left': isImageRight, 'image-right': !isImageRight }"
