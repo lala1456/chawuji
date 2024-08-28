@@ -18,11 +18,11 @@ const props = defineProps({
   },
   imageSrc: {
     type: String,
-    required: true // 确保图片路径是必填的
+    required: true
   },
   isImageRight: {
     type: Boolean,
-    default: false // 默认为图片在左边
+    default: false
   }
 })
 console.log(props)

@@ -4,36 +4,37 @@ import { ref } from 'vue'
 
 const route = useRoute()
 const isCurrentRoute = (path) => route.path === path
+console.log('当前路由', route.path)
 //二维码
 const qrcode = ref([
   {
     title: '微信公众号',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/wx_code.jpg', import.meta.url).href,
     isFirst: true
   },
   {
     title: '微信小程序',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/wx_code.jpg', import.meta.url).href,
     isFirst: false
   },
   {
     title: '抖音号',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/wx_code.jpg', import.meta.url).href,
     isFirst: false
   }
 ])
 //图标
 const ico = ref([
   {
-    imageSrc: new URL('@/assets/微信.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/微信.png', import.meta.url).href,
     isFirst: true
   },
   {
-    imageSrc: new URL('@/assets/微博.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/微博.png', import.meta.url).href,
     isFirst: false
   },
   {
-    imageSrc: new URL('@/assets/抖音.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/layout/抖音.png', import.meta.url).href,
     isFirst: false
   }
 ])
@@ -42,7 +43,7 @@ const ico = ref([
 <template>
   <div class="container">
     <div class="icon" v-if="isCurrentRoute('/home')">
-      <img src="@/assets/chawuji.jpg"  alt=""/>
+      <img src="../assets/layout/chawuji.jpg" alt="" />
     </div>
     <div class="header">
       <div class="header-left">
@@ -50,11 +51,12 @@ const ico = ref([
       </div>
       <div class="header-right">
         <nav class="header-nav">
-          <router-link to="/home" class="nav-link active">首页</router-link>
-          <router-link to="/drink" class="nav-link">饮品展示</router-link>
-          <router-link to="/ingredient" class="nav-link">原料展示</router-link>
-          <router-link to="/brand" class="nav-link">品牌展示</router-link>
-          <router-link to="/about" class="nav-link">关于我们</router-link>
+          <router-link to="/home" class="nav-link" :class="{'active':isCurrentRoute('/home')}">首页</router-link>
+          <router-link to="/drink" class="nav-link" :class="{'active':isCurrentRoute('/drink')}">饮品展示</router-link>
+          <router-link to="/ingredient" class="nav-link" :class="{'active':isCurrentRoute('/ingredient')}">原料展示
+          </router-link>
+          <router-link to="/brand" class="nav-link" :class="{'active':isCurrentRoute('/brand')}">品牌展示</router-link>
+          <router-link to="/about" class="nav-link" :class="{'active':isCurrentRoute('/about')}">关于我们</router-link>
         </nav>
       </div>
     </div>
@@ -66,7 +68,7 @@ const ico = ref([
         <span class="region">杭州市上城区茶物集食品店</span>
         <div class="other">
           <span>地址：浙江省杭州市上城区雍华里2幢底商2-1、2-2一层</span>
-          <span>电话：</span>
+          <span>电话：13185013532</span>
           <span>邮箱：</span>
         </div>
         <div class="ico">
@@ -101,11 +103,12 @@ const ico = ref([
 .container {
   width: 1440px;
   margin: 0 auto;
+  background-image: url('@/assets/layout/background.jpg');
 
   .icon {
     padding-top: 20px;
     text-align: center;
-    background-color: #fcffef;
+    background-color: #FCFFEF;
 
     img {
       width: 173px;
@@ -115,7 +118,7 @@ const ico = ref([
 
   .header {
     width: 100%;
-    background-color: #fcffef;
+    background-color: #FCFFEF;
     height: 120px;
     line-height: 120px;
     box-sizing: border-box;
@@ -144,7 +147,7 @@ const ico = ref([
 
       .nav-link {
         font-size: 28px;
-        color: black;
+        color: #51524E;
         margin-left: 20px;
         text-decoration: none;
       }

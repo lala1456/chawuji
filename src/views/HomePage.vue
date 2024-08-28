@@ -8,14 +8,14 @@ const list = ref([
     burdening: '配方：',
     description:
       '功效：这是杨晓锋在搅拌机里疯狂搅才得到的一点点珍贵的茶，这种经过搅拌获得的杨晓锋茶汤会更加的具有嚼劲，而且闻起来的那一股杨晓锋香是久久不散的，萦绕在房间的每一个角落。\n',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href
+    imageSrc: new URL('@/assets/home/home_pic.png', import.meta.url).href
   },
   {
     title: '奶茶2',
     burdening: '配方：',
     description:
       '含有比较丰富的蛋白质、氨基酸以及各种微量元素，适当的喝一些，能够达到补充身体所需营养的效果。',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/home/home_pic.png', import.meta.url).href,
     isImageRight: true
   },
   {
@@ -23,14 +23,14 @@ const list = ref([
     burdening: '配方：',
     description:
       '含有比较丰富的蛋白质、氨基酸以及各种微量元素，适当的喝一些，能够达到补充身体所需营养的效果。',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href
+    imageSrc: new URL('@/assets/home/home_pic.png', import.meta.url).href
   },
   {
     title: '奶茶4',
     burdening: '配方：',
     description:
       '含有比较丰富的蛋白质、氨基酸以及各种微量元素，适当的喝一些，能够达到补充身体所需营养的效果。',
-    imageSrc: new URL('@/assets/img_1.png', import.meta.url).href,
+    imageSrc: new URL('@/assets/home/home_pic.png', import.meta.url).href,
     isImageRight: true
   }
 ])
@@ -41,7 +41,7 @@ const list = ref([
     <div class="banner">
       <el-carousel :interval="5000" arrow="always" height="721px">
         <el-carousel-item v-for="item in 4" :key="item">
-          <img src="@/assets/img.png" alt="" />
+          <img src="../assets/home_banner.png" alt="" />
         </el-carousel-item>
       </el-carousel>
     </div>

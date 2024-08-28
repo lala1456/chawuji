@@ -12,18 +12,16 @@ export default defineConfig({
     vue(),
     AutoImport({
       resolvers: [
-        ElementPlusResolver(
-          {
-            exclude: /^ElAmap[A-Z]*/
-          },
-        )
+        ElementPlusResolver({
+          exclude: /^ElAmap[A-Z]*/
+        })
       ]
     }),
     Components({
       resolvers: [
         ElementPlusResolver({
           exclude: /^ElAmap[A-Z]*/
-        }),
+        })
       ]
     })
   ],
