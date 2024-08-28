@@ -42,7 +42,7 @@ const ico = ref([
 <template>
   <div class="container">
     <div class="icon" v-if="isCurrentRoute('/home')">
-      <img src="@/assets/chawuji.jpg" />
+      <img src="@/assets/chawuji.jpg"  alt=""/>
     </div>
     <div class="header">
       <div class="header-left">
