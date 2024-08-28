@@ -59,6 +59,7 @@ const list = ref([
         :description="l.description"
         :image-src="l.imageSrc"
         :is-image-right="l.isImageRight"
+        
       />
     </div>
   </div>
